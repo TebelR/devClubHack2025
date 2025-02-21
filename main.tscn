@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbxejqbceauw7"]
+[gd_scene load_steps=7 format=3 uid="uid://dbxejqbceauw7"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_8vgao"]
 [ext_resource type="PackedScene" uid="uid://c8uv7hmywg847" path="res://eng_main_scene.tscn" id="2_0yow5"]
 [ext_resource type="PackedScene" uid="uid://cgi43st45eis7" path="res://eng_base_scene.tscn" id="3_2t33b"]
 [ext_resource type="PackedScene" uid="uid://bcj1nxrm6q5ij" path="res://eng_2_nd_scene.tscn" id="4_3psog"]
 [ext_resource type="PackedScene" uid="uid://s7rvws4dd7pl" path="res://menu_scene.tscn" id="5_ptqdi"]
+[ext_resource type="Script" path="res://Characters/player.gd" id="5_quv37"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8vgao")
@@ -16,6 +17,7 @@ script = ExtResource("1_8vgao")
 [node name="Eng_2nd_Scene" parent="." instance=ExtResource("4_3psog")]
 
 [node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("5_quv37")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

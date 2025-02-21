@@ -30,6 +30,7 @@ func _physics_process(delta: float) -> void:
 			last_direction = "up"
 	else:
 		# Play idle animation based on last movement direction
-		anim_player.play("idle_" + last_direction)
+		if(anim_player):
+			anim_player.play("idle_" + last_direction)
 
 	move_and_slide()
