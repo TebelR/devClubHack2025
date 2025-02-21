@@ -26,7 +26,7 @@ func set_landscape_mode():
 
 
 func proceedToScene(scene):
-	load("res://" + scene + "tscn")
+	load("res://" + scene + ".tscn")
 
 
 
