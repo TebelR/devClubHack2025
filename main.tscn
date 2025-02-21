@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bb2aklum1ba0g"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_8vgao"]
+[ext_resource type="PackedScene" uid="uid://c8uv7hmywg847" path="res://eng_main_scene.tscn" id="2_0yow5"]
+[ext_resource type="PackedScene" uid="uid://cgi43st45eis7" path="res://eng_base_scene.tscn" id="3_2t33b"]
+[ext_resource type="PackedScene" uid="uid://bcj1nxrm6q5ij" path="res://eng_2_nd_scene.tscn" id="4_3psog"]
+[ext_resource type="PackedScene" uid="uid://s7rvws4dd7pl" path="res://menu_scene.tscn" id="5_ptqdi"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_8vgao")
+
+[node name="Eng_Main_Scene" parent="." instance=ExtResource("2_0yow5")]
+
+[node name="Eng_Base_Scene" parent="." instance=ExtResource("3_2t33b")]
+
+[node name="Eng_2nd_Scene" parent="." instance=ExtResource("4_3psog")]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuScene" parent="." instance=ExtResource("5_ptqdi")]
