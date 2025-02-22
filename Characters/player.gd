@@ -79,13 +79,6 @@ func _physics_process(_delta: float) -> void:
 	
 	
 func _process(delta: float) -> void:
-	#if(moving):
-		#var old_pos = position
-		#print(position)
-		#position = position.move_toward(next_loc, SPEED * delta)
-		#var diff = old_pos - position
-		#if(sqrt(pow(diff.x,2) + pow(diff.y,2))<0.5):
-			#moving = false#stop moving if got close enough
 			if(next_loc):
 				position = position.move_toward(next_loc, SPEED * delta)
 	
