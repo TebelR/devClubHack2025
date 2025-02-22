@@ -21,12 +21,13 @@ func _ready() -> void:
 	
 	if(OS.get_name().contains("Android") or OS.get_name().contains("iOS")):
 		set_portrait_mode()#in the case if a phone running this app
+		android_plugin.android_location_permission_updated.connect(self._on_location_permission)
 		android_plugin._request_location_permission()
 		await(android_plugin.android_location_permission_updated)
 		android_plugin.android_location_updated.connect(self._on_location_update)
 		android_plugin._start_geolocation_listener(5000, 0.0)#milisec timeout, minDist
 		
-		#android_plugin.android_location_permission_updated.connect(self._on_location_permission)
+		
 		#android_plugin.android_location_updated.connect(self._on_location_update)
 		phone_flag = true
 	else:
@@ -43,7 +44,11 @@ func _ready() -> void:
 func _on_location_update(location_dictionary: Dictionary) -> void:
 	var cur_lat: float = location_dictionary["latitude"]
 	var cur_lon: float = location_dictionary["longitude"]
-
+	var children = get_children()
+	for child in children:
+		if(child.name.contains("_Scene")):
+			var loc = Vector2(cur_lat, cur_lon)
+			child.update_player_loc(loc)
 
 
 #prevents doubling up of scenes
