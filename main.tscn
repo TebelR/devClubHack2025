@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbxejqbceauw7"]
+[gd_scene load_steps=8 format=3 uid="uid://dbxejqbceauw7"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_8vgao"]
 [ext_resource type="PackedScene" uid="uid://c8uv7hmywg847" path="res://eng_main_scene.tscn" id="2_0yow5"]
@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://bcj1nxrm6q5ij" path="res://eng_2_nd_scene.tscn" id="4_3psog"]
 [ext_resource type="PackedScene" uid="uid://s7rvws4dd7pl" path="res://menu_scene.tscn" id="5_ptqdi"]
 [ext_resource type="PackedScene" uid="uid://lp7l0o2ym040" path="res://Characters/player.tscn" id="6_5h2f8"]
+[ext_resource type="Script" path="res://android_geolocation_plugin.gd" id="7_gce1j"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8vgao")
 
 [node name="Eng_Main_Scene" parent="." instance=ExtResource("2_0yow5")]
-visible = false
 
 [node name="Eng_Base_Scene" parent="." instance=ExtResource("3_2t33b")]
 visible = false
@@ -36,3 +36,6 @@ grow_vertical = 2
 
 [node name="Player" parent="." instance=ExtResource("6_5h2f8")]
 visible = false
+
+[node name="AndroidGeolocationPlugin" type="Node" parent="."]
+script = ExtResource("7_gce1j")

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var anim_player := $AnimationPlayer  # Get AnimationPlayer
 @onready var camera = $Camera2D
 
+
 const SPEED = 300.0
 var last_direction := "down"  # Store the last movement direction
 
