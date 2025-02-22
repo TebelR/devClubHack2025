@@ -2,9 +2,20 @@ extends CharacterBody2D
 
 @onready var sprite := $Sprite2D  # Get the sprite reference
 @onready var anim_player := $AnimationPlayer  # Get AnimationPlayer
+@onready var camera = $Camera2D
 
 const SPEED = 300.0
 var last_direction := "down"  # Store the last movement direction
+
+
+func activate_camera():
+	if(camera):
+		camera.enabled = true
+	
+func disable_camera():
+	if(camera):
+		camera.enabled = false
+
 
 func _physics_process(delta: float) -> void:
 	var direction := Vector2(
@@ -34,3 +45,12 @@ func _physics_process(delta: float) -> void:
 			anim_player.play("idle_" + last_direction)
 
 	move_and_slide()
+	
+	
+	
+	
+	
+	
+#cleanup method - this functions like a destructor
+func _exit_tree():
+	disable_camera()

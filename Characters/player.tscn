@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://lp7l0o2ym040"]
+[gd_scene load_steps=15 format=3 uid="uid://lp7l0o2ym040"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_bcbka"]
 [ext_resource type="Texture2D" uid="uid://dwum6nx7bpmbr" path="res://Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="1_kgrkp"]
+[ext_resource type="Script" path="res://Characters/camera_2d.gd" id="3_sti5e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmbpt"]
 size = Vector2(24, 13)
@@ -191,3 +192,11 @@ shape = SubResource("RectangleShape2D_vmbpt")
 libraries = {
 "": SubResource("AnimationLibrary_0avae")
 }
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+script = ExtResource("3_sti5e")
