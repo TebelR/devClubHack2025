@@ -8,6 +8,9 @@ var pos_tile: Vector2
 var pos_viewport: Vector2 
 var tilemap = null
 
+var moving = false
+var next_loc = 0
+
 const SPEED = 30#300.0
 var last_direction := "down"  # Store the last movement direction
 
@@ -20,6 +23,12 @@ func disable_camera():
 	if(camera):
 		camera.enabled = false
 
+
+func update_pos(tile_loc):
+	#smoothly transition to the new location
+	moving = true;
+	next_loc = tile_loc
+	pass
 
 func _physics_process(_delta: float) -> void:
 	tilemap = get_parent().get_node("TileMapLayer")
@@ -45,9 +54,6 @@ func _physics_process(_delta: float) -> void:
 			
 		
 		#print(pos_tile)
-		if Input.is_action_just_pressed("ui_accept"):
-			print("Space key pressed")
-	
 		velocity = direction * SPEED
 	
 		# Play correct animation based on direction
@@ -72,6 +78,14 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	
 	
+func _process(delta: float) -> void:
+	if(moving):
+		var old_pos = position
+		#print(position)
+		position = position.move_toward(next_loc, SPEED * delta)
+		var diff = old_pos - position
+		if(sqrt(pow(diff.x,2) + pow(diff.y,2))<0.5):
+			moving = false#stop moving if got close enough
 	
 	
 #cleanup method - this functions like a destructor

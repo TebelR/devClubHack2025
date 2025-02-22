@@ -91,7 +91,15 @@ func proceedToScene(scene_name: String):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	#COMMENT THIS OUT ONCE GEOLOCATION TRACKING WORKS FOR REAL-----------------------------------------------
+	if Input.is_action_just_pressed("ui_accept"):
+		var children = get_children()
+		for child in children:
+			if(child.name.contains("_Scene")):
+				cur_lat+=0.0002
+				cur_lon+=0.0002
+				var loc = Vector2(cur_lat, cur_lon)
+				child.update_player_loc(loc)
 	
 	
 func get_location():
