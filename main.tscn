@@ -12,6 +12,7 @@
 script = ExtResource("1_8vgao")
 
 [node name="Eng_Main_Scene" parent="." instance=ExtResource("2_0yow5")]
+position = Vector2(485, 316)
 
 [node name="Eng_Base_Scene" parent="." instance=ExtResource("3_2t33b")]
 visible = false
