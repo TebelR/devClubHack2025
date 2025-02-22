@@ -64,14 +64,14 @@ func hide_all_scenes():
 
 func set_portrait_mode():
 	var screen_size = Vector2(DisplayServer.screen_get_size())
-	if screen_size.x > screen_size.y:
+	if screen_size.x < screen_size.y:
 		DisplayServer.screen_set_orientation(DisplayServer.SCREEN_PORTRAIT)
 
 
 
 func set_landscape_mode():
 	var screen_size = Vector2(DisplayServer.screen_get_size())
-	if screen_size.x < screen_size.y:
+	if screen_size.x > screen_size.y:
 		DisplayServer.screen_set_orientation(DisplayServer.SCREEN_LANDSCAPE)
 
 
