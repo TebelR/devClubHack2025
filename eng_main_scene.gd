@@ -14,10 +14,10 @@ func worldToTile(lat, lon):
 	
 func _ready() -> void:
 	#need to get player coordinates before spawning
-	var root = get_tree().root.get_node("Main")
-	var location = root.get_location()
-	spawnPlayer(location.x, location.y)#spawn at 0,0 for now
-	
+	if (get_tree()):
+		var root = get_tree().root.get_node("Main")
+		var location = root.get_location()
+		spawnPlayer(location.x, location.y)#spawn at 0,0 for now
 	
 
 	
@@ -26,4 +26,5 @@ func spawnPlayer(x, y):
 	var player= preload("res://Characters/player.tscn").instantiate()
 	add_child(player)
 	player.position = location
+	player.activate_camera()
 	

@@ -50,8 +50,6 @@ func _physics_process(delta: float) -> void:
 	
 	
 	
-	
-	
 #cleanup method - this functions like a destructor
 func _exit_tree():
 	disable_camera()

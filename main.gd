@@ -48,12 +48,18 @@ func _on_location_update(location_dictionary: Dictionary) -> void:
 
 #prevents doubling up of scenes
 func hide_all_scenes():
-	eng_main_scene.hide()
-	eng_2_scene.hide()
-	eng_base_scene.hide()
-	ui.hide()
-	player_scene.hide()
-	menu_scene.hide()
+	#eng_main_scene.hide()
+	#eng_2_scene.hide()
+	#eng_base_scene.hide()
+	#ui.hide()
+	#player_scene.hide()
+	#menu_scene.hide()
+	eng_main_scene.queue_free()
+	eng_2_scene.queue_free()
+	eng_base_scene.queue_free()
+	ui.queue_free()
+	player_scene.queue_free()
+	menu_scene.queue_free()
 
 
 func set_portrait_mode():
