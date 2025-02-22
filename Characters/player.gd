@@ -9,9 +9,9 @@ var pos_viewport: Vector2
 var tilemap = null
 
 var moving = false
-var next_loc = 0
+var next_loc = null
 
-const SPEED = 30#300.0
+const SPEED = 300.0
 var last_direction := "down"  # Store the last movement direction
 
 
@@ -26,8 +26,8 @@ func disable_camera():
 
 func update_pos(tile_loc):
 	#smoothly transition to the new location
-	moving = true;
 	next_loc = tile_loc
+	print(next_loc)
 	pass
 
 func _physics_process(_delta: float) -> void:
@@ -79,13 +79,15 @@ func _physics_process(_delta: float) -> void:
 	
 	
 func _process(delta: float) -> void:
-	if(moving):
-		var old_pos = position
+	#if(moving):
+		#var old_pos = position
 		#print(position)
-		position = position.move_toward(next_loc, SPEED * delta)
-		var diff = old_pos - position
-		if(sqrt(pow(diff.x,2) + pow(diff.y,2))<0.5):
-			moving = false#stop moving if got close enough
+		#position = position.move_toward(next_loc, SPEED * delta)
+		#var diff = old_pos - position
+		#if(sqrt(pow(diff.x,2) + pow(diff.y,2))<0.5):
+			#moving = false#stop moving if got close enough
+			if(next_loc):
+				position = position.move_toward(next_loc, SPEED * delta)
 	
 	
 #cleanup method - this functions like a destructor

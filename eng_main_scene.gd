@@ -3,17 +3,14 @@ extends Node2D
 var origin_lon = 49.80861
 var origin_lat = -97.13403
 
-var SCALE = 1000
+var SCALE = 5000
 
 func worldToTile(location:Vector2):
 	var tile_x = (location.x - origin_lon) * SCALE  # Calculate based on longitude
 	var tile_y = (location.y - origin_lat) * SCALE  # Calculate based on latitude
 	var output = Vector2(tile_x, tile_y)
 	
-	print(location)
-	print("VS")
-	print(output)
-	return output
+	return round(output)*48
 	
 	
 func _ready() -> void:
